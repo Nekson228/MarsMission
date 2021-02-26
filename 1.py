@@ -26,7 +26,7 @@ def list_prof(list):
 @app.route('/answer')
 @app.route('/auto_answer')
 def answer():
-    dick = {
+    data = {
         'title': 'Прикол',
         'surname': 'Поглао',
         'name': 'Некит',
@@ -36,7 +36,7 @@ def answer():
         'motivation': 'Хочу чтоб космическую станцию захватили пришельцы!',
         'ready': False,
     }
-    return render_template('answer.html', **dick)
+    return render_template('answer.html', **data)
 
 
 if __name__ == '__main__':
