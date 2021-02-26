@@ -23,5 +23,21 @@ def list_prof(list):
     return render_template('list.html', profs=prof_list, list_type=list)
 
 
+@app.route('/answer')
+@app.route('/auto_answer')
+def answer():
+    dick = {
+        'title': 'Прикол',
+        'surname': 'Поглао',
+        'name': 'Некит',
+        'education': 'Низшее',
+        'profession': 'Нету',
+        'sex': 'male',
+        'motivation': 'Хочу чтоб космическую станцию захватили пришельцы!',
+        'ready': False,
+    }
+    return render_template('answer.html', **dick)
+
+
 if __name__ == '__main__':
     app.run('127.0.0.1', 8080, debug=True)

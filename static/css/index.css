@@ -4,10 +4,14 @@ h1 {
 h4 {
     color: #ffe1be;
     text-align-last: center;
+     padding: 20px;
 }
 ol {
     text-align-last: center;
 }
 ul {
     text-align-last: center;
+}
+p {
+    padding: 20px;
 }

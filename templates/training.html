@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-        <title>Тренировки в полете</title>
-        <link rel="stylesheet" href="/static/css/training.css">
-    </head>
-    <body>
-        <h1>Миссия Колонизация Марса</h1>
-        <h4>И на Марсе будут яблони цвести!</h4>
+{% extends "index.html" %}
+
+{% block content %}
         {% if prof == 'инженер' or prof == 'строитель' %}
             <img src="/static/img/Eng.png">
             <img src="/static/img/3.jpg">
@@ -15,5 +8,4 @@
             <img src="/static/img/Med.png">
             <img src="/static/img/4.jpg">
         {% endif %}
-    </body>
-</html>
+{% endblock %}
