@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import json
 
 app = Flask(__name__)
 
@@ -13,6 +14,13 @@ def index(title):
 def training(prof: str):
     prof = prof.lower()
     return render_template('training.html', prof=prof)
+
+
+@app.route('/list_prof/<list>')
+def news(item):
+    with open("news.json", "rt", encoding="utf8") as f:
+        prof_list = json.loads(f.read())
+    return render_template('news.html', news=prof_list, item=item)
 
 
 if __name__ == '__main__':
