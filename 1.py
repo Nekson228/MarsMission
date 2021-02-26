@@ -17,10 +17,10 @@ def training(prof: str):
 
 
 @app.route('/list_prof/<list>')
-def news(item):
-    with open("news.json", "rt", encoding="utf8") as f:
+def list_prof(list):
+    with open("static/json/profs.json", "rt", encoding="utf8") as f:
         prof_list = json.loads(f.read())
-    return render_template('news.html', news=prof_list, item=item)
+    return render_template('list.html', profs=prof_list, list_type=list)
 
 
 if __name__ == '__main__':
