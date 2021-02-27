@@ -65,5 +65,11 @@ def success():
     return render_template('success.html')
 
 
+@app.route('/distribution')
+def distribution():
+    astronauts = ['Некит Поглов', 'Павел Эс', 'Иван Кириешка', 'Андроид Артишок']
+    return render_template('distribution.html', staff=astronauts)
+
+
 if __name__ == '__main__':
     app.run('127.0.0.1', 8080, debug=True)
