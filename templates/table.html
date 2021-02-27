@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+<h3>Дизайн каюты для вас</h3>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Цвет</th>
+      <th>Эмблема</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="background-color: {{ color }}"></td>
+      <td>
+          {% if age > 21 %}
+          <img src="/static/img/adult.png">
+          {% else %}
+          <img src="/static/img/child.png">
+          {% endif %}
+      </td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

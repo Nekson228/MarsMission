@@ -31,3 +31,10 @@ form {
 div {
     margin: 20px;
 }
+table {
+    max-width: max-content;
+    margin: auto;
+}
+td {
+    width: 256px;
+}

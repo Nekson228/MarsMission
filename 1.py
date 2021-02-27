@@ -71,5 +71,12 @@ def distribution():
     return render_template('distribution.html', staff=astronauts)
 
 
+@app.route('/table/<sex>/<int:age>')
+def table(sex, age):
+    color = f'rgb(0, 0, {round(255 / age * 15)})' if sex.lower() == 'male' else f'rgb({round(255 / age * 15)}, 0, 0)'
+    print(color)
+    return render_template('table.html', color=color, age=age)
+
+
 if __name__ == '__main__':
     app.run('127.0.0.1', 8080, debug=True)
