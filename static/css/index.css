@@ -28,13 +28,14 @@ form {
     border: 1px solid gray;
     border-radius: 10px;
 }
-div {
-    margin: 20px;
-}
 table {
     max-width: max-content;
     margin: auto;
 }
 td {
     width: 256px;
+}
+.profile {
+    margin: auto;
+    text-align: center;
 }

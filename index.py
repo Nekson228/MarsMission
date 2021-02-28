@@ -106,5 +106,12 @@ def gallery_success():
     return render_template('success.html', text='Фото отправлено')
 
 
+@app.route('/member')
+def member():
+    with open('static/json/members.json', mode='rt', encoding='utf8') as jsonFile:
+        members_data = json.loads(jsonFile.read())['members']
+    return render_template('member.html', members=members_data)
+
+
 if __name__ == '__main__':
     app.run('127.0.0.1', 8080, debug=True)

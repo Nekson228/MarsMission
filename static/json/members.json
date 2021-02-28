@@ -1,0 +1,32 @@
+{
+  "members": [
+    {
+      "name": "Некит Поглов",
+      "image": "/static/img/adult.png",
+      "professions": [
+      "Крутой", "Программист", "Дверная ручка"
+      ]
+    },
+    {
+      "name": "Павел С",
+      "image": "/static/img/child.png",
+      "professions": [
+      "Нефть", "Активированный уголь", "Огромная прическа"
+      ]
+    },
+    {
+      "name": "Иван Кириешка",
+      "image": "/static/img/van.jpg",
+      "professions": [
+      "Сухарик", "Прикол", "Звездный воин"
+      ]
+    },
+    {
+      "name": "Андр Артишок",
+      "image": "/static/img/andr.png",
+      "professions": [
+      "Огромные уши", "Душнила", "Ленивец"
+      ]
+    }
+  ]
+}
