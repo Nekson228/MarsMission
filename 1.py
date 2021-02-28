@@ -1,8 +1,12 @@
-from flask import Flask, render_template, redirect
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-import json
+import os
 
+from flask import Flask, render_template, redirect, request
+from flask_wtf import FlaskForm
+from flask_wtf.file import FileRequired
+from werkzeug.utils import secure_filename
+from wtforms import StringField, PasswordField, SubmitField, FileField
+import json
+from os import listdir
 from wtforms.validators import DataRequired
 
 app = Flask(__name__)
@@ -62,7 +66,7 @@ def login():
 
 @app.route('/login/success')
 def success():
-    return render_template('success.html')
+    return render_template('success.html', text='Доступ разрешен!')
 
 
 @app.route('/distribution')
@@ -74,8 +78,32 @@ def distribution():
 @app.route('/table/<sex>/<int:age>')
 def table(sex, age):
     color = f'rgb(0, 0, {round(255 / age * 15)})' if sex.lower() == 'male' else f'rgb({round(255 / age * 15)}, 0, 0)'
-    print(color)
     return render_template('table.html', color=color, age=age)
+
+
+class FileForm(FlaskForm):
+    img_field = FileField('Добавить фото', validators=[FileRequired()])
+    submit_field = SubmitField('Загрузить')
+
+
+@app.route('/gallery', methods=['POST', 'GET'])
+def gallery():
+    form = FileForm()
+    if request.method == 'GET':
+        images = listdir('static/img/gallery')
+        if form.validate_on_submit():
+            return redirect('/gallery/success')
+        return render_template('gallery.html', imgs=images, form=form)
+    elif request.method == 'POST':
+        file = form.img_field.data
+        filename = secure_filename(file.filename)
+        file.save(os.path.join('static/img/gallery', filename))
+        return redirect('/gallery/success')
+
+
+@app.route('/gallery/success')
+def gallery_success():
+    return render_template('success.html', text='Фото отправлено')
 
 
 if __name__ == '__main__':
